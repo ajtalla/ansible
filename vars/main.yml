@@ -1,0 +1,33 @@
+---
+# vars file for prometheus
+
+prometheus_link: https://github.com/prometheus/prometheus/releases/download/v1.7.1/prometheus-1.7.1.linux-amd64.tar.gz
+alertmanager_link: https://github.com/prometheus/alertmanager/releases/download/v0.8.0/alertmanager-0.8.0.linux-amd64.tar.gz
+node_exporter_link: https://github.com/prometheus/node_exporter/releases/download/v0.14.0/node_exporter-0.14.0.linux-amd64.tar.gz
+
+prometheus_dir: /opt/prometheus
+alertmanager_dir: /opt/alertmanager
+node_exporter_dir: /opt/node_exporter
+systemd_dir: /etc/systemd/system
+
+alertmanager_address: 10.110.0.1
+prometheus_server: 10.110.0.2
+
+
+prometheus_hosts:
+  - 10.20.0.1
+  - 10.20.0.2
+
+
+scrape: 5s
+evaluation: 5s
+
+
+smtp_server: localhost
+smtp_port: 25
+from_address: alerttest@gmail.com
+smtp_username: alertmanager
+smtp_pass: 123456
+
+send_to:
+  - ajay@gmail.com
