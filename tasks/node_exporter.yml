@@ -6,14 +6,12 @@
     owner: root
     group: root
     mode: 0755
-
 - name: Get node_exporter
   unarchive:
     src: "{{ node_exporter_link }}"
     dest: "{{ node_exporter_dir }}"
     remote_src: True
     extra_opts: "--strip=1"
-
 - name: Copy node_exporter service file
   template:
     src: node_exporter.service.j2
@@ -22,4 +20,3 @@
     group: root
     mode: 0644
   notify: node_exporter restart
-
