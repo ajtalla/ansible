@@ -1,0 +1,21 @@
+global:
+  scrape_interval:     {{ scrape }}
+  evaluation_interval: {{ evaluation }}
+
+rule_files:
+  - all.rules
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['{{ prometheus_server }}:9090']
+        labels:
+          alias: prometheus
+
+{% for item in prometheus_hosts %}
+  - job_name: '{{ item }}'
+    static_configs:
+      - targets: ['{{ item }}:9100']
+        labels:
+          alias: {{ item }}
+{% endfor %}
