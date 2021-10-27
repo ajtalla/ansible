@@ -7,7 +7,7 @@
     owner: root
     group: root
     mode: 0755
-- name: Get alertmanager
+- name: Download alertmanager
   unarchive:
     src: "{{ alertmanager_link }}"
     dest: "{{ alertmanager_dir }}"
